@@ -121,7 +121,7 @@ alias sbrc='source ~/.bashrc'
 
 # GITHUB
 parse_git_branch() {
-  git branch 2>/dev/null | grep '*' | sed 's/* //'
+  git branch 2>/dev/null | grep '*' | sed 's/* /(/;s/$/)/'
 }
-export PS1='\[\e[1;32m\]\u@\h\[\e[1;0m\]:\[\e[1;34m\]\w\[\e[1;0m\] \[\e[1;33m\]($(parse_git_branch))\[\e[1;0m\] $ '
+export PS1='\[\e[1;32m\]\u@\h\[\e[1;0m\]:\[\e[1;34m\]\w\[\e[1;0m\]\[\e[1;33m\]$(parse_git_branch)\[\e[1;0m\]$ '
 alias gs='git status'
